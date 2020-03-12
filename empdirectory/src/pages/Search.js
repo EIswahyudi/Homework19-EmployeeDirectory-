@@ -1,61 +1,43 @@
-// import React, { Component } from "react";
-// import API from "../utils/API";
-// import Container from "../components/Container";
-// import SearchForm from "../components/SearchForm";
-// import SearchResults from "../components/SearchResults";
-// import Alert from "../components/Alert";
+import React from "react";
+import Container from "../components/Container";
+import Col from "../components/Col";
+import Row from "../components/Row";
+// import Navbar from "../components/Navbar";
 
-// class Search extends Component {
-//   state = {
-//     search: "",
-//     breeds: [],
-//     results: [],
-//     error: ""
-//   };
+const Search = () => {
+    const handleSubmit = e => {
+        e.preventDefault();
+    };
+    return (
+        <div>
+            {/* <Navbar/> */}
+            <div className="mt-4">
+                <h2>Add Employee</h2>
+            </div>
+            <form onSubmit={handleSubmit}>
+                <Container className="mt-3 px-5">
+                    <Row className="form-group">
+                        <Col size="12">
+                            <input className="form-control" type="text" placeholder="First Name" name="firstname" />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Col size="12">
+                            <input
+                                className="form-control"
+                                type="text"
+                                placeholder="Last Name"
+                                name="lastname"
+                            />
+                        </Col>
+                    </Row>
+                    <button className="btn btn-success" type="submit">
+                        Submit
+              </button>
+                </Container>
 
-//   // When the component mounts, get a list of all available base breeds and update this.state.breeds
-//   componentDidMount() {
-//     API.getBaseBreedsList()
-//       .then(res => this.setState({ breeds: res.data.message }))
-//       .catch(err => console.log(err));
-//   }
-
-//   handleInputChange = event => {
-//     this.setState({ search: event.target.value });
-//   };
-
-//   handleFormSubmit = event => {
-//     event.preventDefault();
-//     API.getDogsOfBreed(this.state.search)
-//       .then(res => {
-//         if (res.data.status === "error") {
-//           throw new Error(res.data.message);
-//         }
-//         this.setState({ results: res.data.message, error: "" });
-//       })
-//       .catch(err => this.setState({ error: err.message }));
-//   };
-//   render() {
-//     return (
-//       <div>
-//         <Container style={{ minHeight: "80%" }}>
-//           <h1 className="text-center">Search By Breed!</h1>
-//           <Alert
-//             type="danger"
-//             style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
-//           >
-//             {this.state.error}
-//           </Alert>
-//           <SearchForm
-//             handleFormSubmit={this.handleFormSubmit}
-//             handleInputChange={this.handleInputChange}
-//             breeds={this.state.breeds}
-//           />
-//           <SearchResults results={this.state.results} />
-//         </Container>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Search;
+            </form>
+        </div>
+    );
+}
+export default Search

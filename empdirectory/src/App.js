@@ -1,22 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Search from "./pages/Search";
-import Navbar from "./components/Navbar";
-
-// import Footer from "./components/Footer";
-// import Wrapper from "./components/Wrapper";
+import React from 'react';
+import './App.css';
+// import Directory from "./pages/directory"
+import Table from "./Utils/table";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Navbar />
-        {/* <Wrapper> */}
-          <Route exact path="/search" component={Search} />
-        {/* </Wrapper> */}
-        {/* <Footer /> */}
-      </div>
-    </Router>
+    <div className="App">
+      {/* <Directory/> */}
+      <Table/>
+    </div>
   );
 }
 
